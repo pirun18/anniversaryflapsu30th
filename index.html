@@ -3,473 +3,1229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แนะแนวการศึกษาต่อคณะศิลปศาสตร์ ม.สงขลานครินทร์</title>
+    <title>แนะแนวการศึกษาต่อ คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์</title>
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* 1. SETUP & THEME VARIABLES */
+        /* --------------------------------------------------
+           1. VARIABLE & THEME SETUP (Red, White, Gold Theme)
+        -------------------------------------------------- */
         :root {
-            --red-primary: #8B0000;      /* Dark Crimson Red */
-            --red-secondary: #B71C1C;    /* Bright Royal Red */
-            --gold-primary: #D4AF37;     /* Metallic Gold */
-            --gold-light: #F9F3E3;       /* Soft Light Gold Tint */
-            --gold-border: #E6CA65;      /* Gold Border Color */
-            --text-dark: #2A2A2A;        /* Charcoal Dark Text */
-            --bg-light: #FAFAFA;         /* Crisp Soft White Background */
+            --red-deep: #8B0000;
+            --red-bright: #B71C1C;
+            --red-soft: #FFEBEE;
+            --gold-primary: #D4AF37;
+            --gold-light: #FAF4E1;
+            --gold-dark: #AA820A;
+            --white: #FFFFFF;
+            --bg-light: #F8FAF9;
+            --text-main: #2D3748;
+            --text-muted: #718096;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(139, 0, 0, 0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { box-sizing: border-box; }
-        p { margin: 0; margin-bottom: 15px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
-            background-color: #2b2b2b;
-            display: grid;
-            gap: 40px;
-            grid-template-columns: 1fr;
-            margin: 0;
-            min-height: 100vh;
-            padding: 40px 0;
-            place-items: center;
-        }
-
-        .slide-container {
-            align-items: center;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
             font-family: 'Sarabun', sans-serif;
-            height: 720px;
-            justify-content: center;
-            overflow: hidden;
-            padding: 60px;
-            position: relative;
-            width: 1280px;
-            /* Background decoration: Red & Gold Accents */
-            background: linear-gradient(135deg, #ffffff 0%, #fffdf8 100%);
-            border: 2px solid var(--gold-border);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Abstract shapes decoration (Red & Gold circles) */
-        .slide-container::before {
-            content: '';
-            position: absolute;
-            top: -120px;
-            right: -120px;
-            width: 420px;
-            height: 420px;
-            background: radial-gradient(circle, rgba(139, 0, 0, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .slide-container::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            left: -80px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .slide-container > * { position: relative; z-index: 1; }
-
-        /* 2. TYPOGRAPHY */
-        h1, h2, h3 {
-            color: var(--red-primary);
+        h1, h2, h3, h4, .font-title {
             font-family: 'Kanit', sans-serif;
+            color: var(--red-deep);
+        }
+
+        /* --------------------------------------------------
+           2. HEADER & NAVIGATION (App Layout)
+        -------------------------------------------------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 24px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .brand-logo img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            color: var(--text-muted);
             margin: 0;
         }
 
-        h1 { font-size: 56px; font-weight: 700; line-height: 1.2; text-align: center; }
-        
-        .slide-title {
-            font-size: 38px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-align: left;
-            width: 100%;
-            border-left: 8px solid var(--gold-primary);
-            padding-left: 20px;
-            color: var(--red-primary);
-        }
-
-        h3 { font-size: 26px; color: var(--red-primary); margin-bottom: 10px; }
-        p, li, td, th { font-size: 20px; color: var(--text-dark); line-height: 1.6; }
-
-        .subtitle { font-size: 26px; color: #555; margin-top: 20px; font-weight: 400; text-align: center; }
-
-        /* 3. LAYOUTS */
-        .content-area {
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: center;
-            width: 100%;
+            gap: 6px;
+            list-style: none;
         }
 
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            width: 100%;
-            align-items: center;
-        }
-
-        /* Major deep-dive styling */
-        .major-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .info-tag {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .info-tag i { color: var(--red-primary); margin-top: 5px; width: 25px; text-align: center; font-size: 22px; }
-        .info-tag strong { color: var(--red-primary); min-width: 100px; font-weight: 600; }
-
-        .qr-section {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .qr-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 14px;
-            text-align: center;
-            gap: 5px;
-            font-weight: bold;
-            color: var(--red-primary);
-        }
-
-        .qr-placeholder {
-            width: 100px;
-            height: 100px;
-            background-color: #ffffff;
-            border: 2px solid var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--red-primary);
-            font-size: 40px;
+        .nav-link {
+            padding: 8px 14px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.15);
-        }
-
-        .image-wrapper {
-            border-radius: 20px;
-            height: 450px;
-            overflow: hidden;
-            border: 3px solid var(--gold-primary);
-            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.15);
-        }
-
-        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Tiled Layout for icons */
-        .tiled-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            width: 100%;
-        }
-
-        .tile {
-            background: #ffffff;
-            border: 1.5px solid var(--gold-border);
-            border-top: 5px solid var(--red-primary);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease;
-        }
-
-        .tile .icon { font-size: 48px; color: var(--gold-primary); margin-bottom: 20px; }
-
-        /* Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 16px;
-        }
-
-        th {
-            background-color: var(--red-primary);
-            color: #ffffff;
-            padding: 12px;
-            text-align: center;
-            border: 1px solid var(--gold-primary);
             font-family: 'Kanit', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-main);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--red-soft);
+            color: var(--red-deep);
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+            border-bottom: 2px solid var(--red-deep);
+        }
+
+        /* Mobile Nav Controls */
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--red-deep);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --------------------------------------------------
+           3. MAIN CONTAINER & PAGE ROUTING
+        -------------------------------------------------- */
+        main {
+            flex: 1;
+            max-width: 1300px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 0 24px;
+        }
+
+        .page-section {
+            display: none; /* Hide all pages by default */
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        .page-section.active {
+            display: block; /* Show active page */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Slide Stepper Controls (Bottom Bar) */
+        .slide-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-step {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border: 2px solid var(--gold-primary);
+            background: var(--white);
+            color: var(--red-deep);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-step:hover:not(:disabled) {
+            background: var(--red-deep);
+            color: var(--white);
+            border-color: var(--red-deep);
+        }
+
+        .btn-step:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            border-color: #CBD5E0;
+            color: #A0AEC0;
+        }
+
+        .slide-indicator {
+            font-family: 'Kanit', sans-serif;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        /* --------------------------------------------------
+           4. PAGE SPECIFIC COMPONENTS & CARDS
+        -------------------------------------------------- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gold-primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Grid Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid #E2E8F0;
+            border-top: 5px solid var(--red-deep);
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold-primary);
+        }
+
+        .info-card .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            color: var(--red-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .info-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .info-card .btn-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+            color: var(--red-deep);
             font-weight: 500;
         }
 
-        td {
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            text-align: center;
-        }
-
-        tr:nth-child(even) { background-color: var(--gold-light); }
-
-        .sub-header { font-size: 13px; font-weight: normal; background-color: var(--red-secondary); }
-
-        /* Contact grid styling */
-        .contact-grid {
+        /* Major Deep-Dive Layout (2 Columns) */
+        .major-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: var(--shadow-md);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 100%;
-            margin-top: 30px;
+            gap: 40px;
+            align-items: center;
         }
 
-        .contact-item {
+        .major-details h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold-light);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item i {
+            font-size: 20px;
+            color: var(--red-deep);
+            background: var(--gold-light);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .detail-item div h4 {
+            font-size: 16px;
+            color: var(--red-deep);
+            font-weight: 600;
+        }
+
+        .detail-item div p {
+            font-size: 16px;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .major-media {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .major-img {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .qr-wrapper {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            background: var(--gold-light);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px dashed var(--gold-primary);
+        }
+
+        .qr-card {
+            text-align: center;
+            flex: 1;
+        }
+
+        .qr-card .qr-box {
+            width: 90px;
+            height: 90px;
+            background: var(--white);
+            border: 2px solid var(--gold-primary);
+            border-radius: 8px;
+            margin: 0 auto 8px;
             display: flex;
             align-items: center;
-            gap: 18px;
-            padding: 20px;
-            background: var(--gold-light);
-            border-radius: 12px;
-            border: 1px solid var(--gold-border);
-            border-left: 5px solid var(--red-primary);
+            justify-content: center;
+            font-size: 40px;
+            color: var(--red-deep);
+            box-shadow: var(--shadow-sm);
         }
 
-        .contact-item i { font-size: 30px; color: var(--red-primary); }
+        .qr-card span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--red-deep);
+            display: block;
+        }
+
+        /* --------------------------------------------------
+           5. TABLES & CONTACT STYLES
+        -------------------------------------------------- */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: var(--red-deep);
+            color: var(--white);
+            padding: 14px 10px;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        th.sub-head {
+            background-color: var(--red-bright);
+            font-size: 12px;
+            font-weight: 300;
+        }
+
+        td {
+            padding: 14px 10px;
+            border: 1px solid #E2E8F0;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--gold-light);
+        }
+
+        td.check-mark {
+            color: var(--red-deep);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Hero Banner Slide 1 */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(139,0,0,0.95) 0%, rgba(183,28,28,0.9) 100%), 
+                        url('http://googleusercontent.com/image_collection/image_retrieval/16480396742820258014') center/cover;
+            border-radius: 24px;
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            border: 3px solid var(--gold-primary);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h2 {
+            color: var(--gold-primary);
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .hero-banner p.sub {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: var(--red-deep);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 6px solid var(--red-deep);
+            border-top: 1px solid #E2E8F0;
+            border-right: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background: var(--gold-light);
+        }
+
+        .contact-card i {
+            font-size: 32px;
+            color: var(--red-deep);
+        }
+
+        .contact-card div h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .contact-card div p, .contact-card div a {
+            font-size: 15px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        /* --------------------------------------------------
+           6. RESPONSIVE DESIGN
+        -------------------------------------------------- */
+        @media (max-width: 992px) {
+            .major-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none; /* Hide on mobile by default */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 15px;
+                border-bottom: 3px solid var(--gold-primary);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-banner h2 {
+                font-size: 36px;
+            }
+
+            .hero-banner p.sub {
+                font-size: 18px;
+            }
+
+            .brand-text {
+                display: none; /* Hide text on small screens if logo has text */
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--red-deep);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            border-top: 4px solid var(--gold-primary);
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
 
-<!-- Slide 1: Title Slide -->
-<div class="slide-container" id="slide1">
-    <div class="content-area" style="align-items: center;">
-        <div class="image-wrapper" style="width: 240px; height: 240px; border-radius: 50%; margin-bottom: 25px; border: 4px solid var(--gold-primary);">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/11589443385992760771" alt="ตราสัญลักษณ์ คณะศิลปศาสตร์ ม.อ.">
-        </div>
-        <h1 style="color: var(--red-primary);">แนะแนวการศึกษาต่อ<br><span style="color: var(--gold-primary);">คณะศิลปศาสตร์</span></h1>
-        <p class="subtitle" style="font-weight: 600; color: #444;">มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตหาดใหญ่</p>
-        <div style="margin-top: 35px; padding: 8px 25px; background: var(--red-primary); color: #ffffff; border-radius: 25px; border: 1px solid var(--gold-primary);">
-            <p style="margin: 0; font-size: 18px; color: #ffffff; font-weight: 500;">โดย งานบริการการศึกษา คณะศิลปศาสตร์</p>
-        </div>
-    </div>
-</div>
+    <!-- APP HEADER / NAV -->
+    <header>
+        <div class="header-container">
+            <a href="javascript:void(0)" onclick="navigateTo(1)" class="brand-logo">
+                <img src="https://libarts.psu.ac.th/wp-content/uploads/2026/01/Logo-libarts-300x75.webp" alt="[โลโก้ คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์]">
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-<!-- Slide 2: Overview (Tiled_Text_With_Icons) -->
-<div class="slide-container" id="slide2">
-    <h2 class="slide-title">แนะนำหลักสูตรที่เปิดสอน</h2>
-    <div class="content-area">
-        <p style="margin-bottom: 25px; font-size: 24px; text-align: center; color: var(--red-primary); font-weight: 600;">เปิดสอนหลักสูตรศิลปศาสตรบัณฑิต จำนวน 5 สาขาวิชา</p>
-        <div class="tiled-content">
-            <div class="tile"><i class="fa-solid fa-pen-nib icon"></i><h3>ภาษาไทยประยุกต์</h3><p>เน้นการสื่อสารอย่างสร้างสรรค์ในยุคดิจิทัล</p></div>
-            <div class="tile"><i class="fa-solid fa-language icon"></i><h3>ภาษาอังกฤษ</h3><p>พัฒนาทักษะระดับสากล เพื่อการทำงานทั่วโลก</p></div>
-            <div class="tile"><i class="fa-solid fa-earth-asia icon"></i><h3>ภาษาจีน</h3><p>โอกาสการเรียนรู้แบบ 3+1 กับมหาวิทยาลัยชั้นนำ</p></div>
-            <div class="tile"><i class="fa-solid fa-users-viewfinder icon"></i><h3>ชุมชนศึกษาฯ</h3><p>เรียนรู้เชิงลึกเพื่อการพัฒนาสังคมอย่างยั่งยืน</p></div>
-            <div class="tile" style="grid-column: span 2;"><i class="fa-solid fa-plane-up icon"></i><h3>การจัดการอุตสาหกรรมการบินและการบริการ</h3><p>ฝึกปฏิบัติมาตรฐานสายการบิน พร้อมก้าวสู่อาชีพการบินและการบริการระดับสากล</p></div>
+            <ul class="nav-links" id="navMenu">
+                <li><a class="nav-link" onclick="navigateTo(1)"><i class="fa-solid fa-house"></i> หน้าแรก</a></li>
+                <li><a class="nav-link" onclick="navigateTo(2)"><i class="fa-solid fa-book"></i> หลักสูตร</a></li>
+                <li><a class="nav-link" onclick="navigateTo(8)"><i class="fa-solid fa-id-card"></i> TCAS</a></li>
+                <li><a class="nav-link" onclick="navigateTo(9)"><i class="fa-solid fa-table-list"></i> จำนวนรับ</a></li>
+                <li><a class="nav-link" onclick="navigateTo(10)"><i class="fa-solid fa-headset"></i> ติดต่อเรา</a></li>
+            </ul>
         </div>
-    </div>
-</div>
+    </header>
 
-<!-- Slide 3: Deep-dive Applied Thai -->
-<div class="slide-container" id="slide3">
-    <h2 class="slide-title">เจาะลึกสาขาวิชาภาษาไทยประยุกต์</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div class="major-info">
-                <div class="info-tag"><i class="fa-solid fa-award"></i><strong>จุดเด่น:</strong><span>เน้นการประยุกต์ใช้ภาษาไทยในสื่อสมัยใหม่ ธุรกิจดิจิทัล และความคิดสร้างสรรค์</span></div>
-                <div class="info-tag"><i class="fa-solid fa-book-open-reader"></i><strong>แผนการศึกษา:</strong><span>เรียน 4 ปี ครอบคลุมงานเขียน สื่อสารมวลชน และภาษาไทยเพื่อธุรกิจ</span></div>
-                <div class="info-tag"><i class="fa-solid fa-coins"></i><strong>ค่าเทอม:</strong><span>16,000 บาท / ภาคการศึกษา</span></div>
-                <div class="info-tag"><i class="fa-solid fa-briefcase"></i><strong>อาชีพ:</strong><span>Content Creator, นักประชาสัมพันธ์, บรรณาธิการ, นักวิชาการภาษาไทย</span></div>
-                <div class="qr-section">
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div><span>ข้อมูลหลักสูตร</span></div>
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-brands fa-facebook-f"></i></div><span>Facebook หลักสูตรฯ</span></div>
+    <!-- MAIN APP CONTENT (10 PAGE SECTIONS) -->
+    <main>
+
+        <!-- PAGE 1: TITLE / HERO SLIDE -->
+        <section class="page-section" id="page-1">
+            <div class="hero-banner">
+                <div style="margin-bottom: 20px;">
+                    <span class="hero-badge"><i class="fa-solid fa-graduation-cap"></i> แนะแนวการศึกษาต่อ</span>
+                </div>
+                <h2>คณะศิลปศาสตร์</h2>
+                <p class="sub">มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตหาดใหญ่</p>
+                <p style="font-size: 16px; opacity: 0.9;">ข้อมูลโดย งานบริการการศึกษา คณะศิลปศาสตร์</p>
+                
+                <div style="margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn-step" style="background: var(--gold-primary); color: var(--red-deep); border: none;" onclick="navigateTo(2)">
+                        ดูหลักสูตรที่เปิดสอน <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-step" style="background: transparent; color: var(--white); border-color: var(--white);" onclick="navigateTo(8)">
+                        แผนการรับสมัคร TCAS
+                    </button>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/17390761486112386538" alt="เรียนภาษาไทยประยุกต์">
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Slide 4: Deep-dive English -->
-<div class="slide-container" id="slide4">
-    <h2 class="slide-title">เจาะลึกสาขาวิชาภาษาอังกฤษ</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div class="major-info">
-                <div class="info-tag"><i class="fa-solid fa-award"></i><strong>จุดเด่น:</strong><span>มุ่งเน้นทักษะการสื่อสารระดับสากล การแปล การล่าม และภาษาอังกฤษเพื่อธุรกิจ</span></div>
-                <div class="info-tag"><i class="fa-solid fa-book-open-reader"></i><strong>แผนการศึกษา:</strong><span>เรียน 4 ปี เน้นทักษะ 4 ด้านและวิชาเลือกเฉพาะทางตามความสนใจ</span></div>
-                <div class="info-tag"><i class="fa-solid fa-coins"></i><strong>ค่าเทอม:</strong><span>16,000 บาท / ภาคการศึกษา</span></div>
-                <div class="info-tag"><i class="fa-solid fa-briefcase"></i><strong>อาชีพ:</strong><span>ล่าม, นักแปล, พนักงานบริษัทข้ามชาติ, แอร์โฮสเตส, นักวิเทศสัมพันธ์</span></div>
-                <div class="qr-section">
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div><span>ข้อมูลหลักสูตร</span></div>
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-brands fa-facebook-f"></i></div><span>Facebook หลักสูตรฯ</span></div>
+        <!-- PAGE 2: COURSES OVERVIEW -->
+        <section class="page-section" id="page-2">
+            <div class="section-header">
+                <h2>แนะนำหลักสูตรที่เปิดสอน</h2>
+                <p>คณะศิลปศาสตร์ เปิดสอนหลักสูตรศิลปศาสตรบัณฑิต รวม 5 สาขาวิชา</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="info-card" onclick="navigateTo(3)">
+                    <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3>ภาษาไทยประยุกต์</h3>
+                    <p>เน้นทักษะการสื่อสารภาษาไทยอย่างสร้างสรรค์ ประยุกต์ใช้ในธุรกิจดิจิทัลและสื่อสมัยใหม่</p>
+                    <span class="btn-card-link">เจาะลึกสาขา <i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+
+                <div class="info-card" onclick="navigateTo(4)">
+                    <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                    <h3>ภาษาอังกฤษ</h3>
+                    <p>พัฒนาทักษะการสื่อสารระดับสากล การแปล การล่าม และภาษาอังกฤษเพื่อธุรกิจ</p>
+                    <span class="btn-card-link">เจาะลึกสาขา <i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+
+                <div class="info-card" onclick="navigateTo(5)">
+                    <div class="card-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                    <h3>ภาษาจีน</h3>
+                    <p>เรียนกับเจ้าของภาษา พร้อมโอกาสการเรียนรู้แบบ 3+1 ร่วมกับมหาวิทยาลัยชั้นนำในจีน</p>
+                    <span class="btn-card-link">เจาะลึกสาขา <i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+
+                <div class="info-card" onclick="navigateTo(6)">
+                    <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>ชุมชนศึกษาเพื่อการพัฒนา</h3>
+                    <p>เรียนรู้เชิงลึกจากการปฏิบัติจริงในชุมชน เพื่อสร้างการเปลี่ยนแปลงและพัฒนาสังคมอย่างยั่งยืน</p>
+                    <span class="btn-card-link">เจาะลึกสาขา <i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+
+                <div class="info-card" style="grid-column: 1 / -1;" onclick="navigateTo(7)">
+                    <div class="card-icon"><i class="fa-solid fa-plane-up"></i></div>
+                    <h3>การจัดการอุตสาหกรรมการบินและการบริการ</h3>
+                    <p>ฝึกปฏิบัติกับห้องจำลองเครื่องบินมาตรฐาน ก้าวสู่อาชีพการบินและอุตสาหกรรมบริการระดับนานาชาติ</p>
+                    <span class="btn-card-link">เจาะลึกสาขา <i class="fa-solid fa-chevron-right"></i></span>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/2833350672515994300" alt="เรียนภาษาอังกฤษ">
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Slide 5: Deep-dive Chinese -->
-<div class="slide-container" id="slide5">
-    <h2 class="slide-title">เจาะลึกสาขาวิชาภาษาจีน</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div class="major-info">
-                <div class="info-tag"><i class="fa-solid fa-award"></i><strong>จุดเด่น:</strong><span>เรียนกับเจ้าของภาษา มีแผน 3+1 (เรียนที่ไทย 3 ปี และประเทศจีน 1 ปี)</span></div>
-                <div class="info-tag"><i class="fa-solid fa-book-open-reader"></i><strong>แผนการศึกษา:</strong><span>เรียน 4 ปี เน้นภาษาจีนเพื่อธุรกิจ การติดต่อประสานงาน และวัฒนธรรม</span></div>
-                <div class="info-tag"><i class="fa-solid fa-coins"></i><strong>ค่าเทอม:</strong><span>16,000 บาท (ปกติ) / 28,000 บาท (แผน 3+1)</span></div>
-                <div class="info-tag"><i class="fa-solid fa-briefcase"></i><strong>อาชีพ:</strong><span>ล่าม, มัคคุเทศก์, ประสานงานธุรกิจไทย-จีน, งานราชการ/เอกชน</span></div>
-                <div class="qr-section">
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div><span>ข้อมูลหลักสูตร</span></div>
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-brands fa-facebook-f"></i></div><span>Facebook หลักสูตรฯ</span></div>
+        <!-- PAGE 3: APPLIED THAI -->
+        <section class="page-section" id="page-3">
+            <div class="major-container">
+                <div class="major-details">
+                    <h3>สาขาวิชาภาษาไทยประยุกต์</h3>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>จุดเด่นหลักสูตร</h4>
+                            <p>เน้นการนำภาษาไทยไปประยุกต์ใช้ในสื่อสมัยใหม่ ธุรกิจดิจิทัล และนวัตกรรมการสื่อสาร</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h4>แผนการศึกษา</h4>
+                            <p>ระยะเวลาเรียน 4 ปี ครอบคลุมการเขียนสร้างสรรค์ สื่อสารมวลชน และภาษาไทยเชิงธุรกิจ</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <h4>ค่าธรรมเนียมการศึกษา</h4>
+                            <p>16,000 บาท / ภาคการศึกษา</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <h4>อาชีพหลังสำเร็จการศึกษา</h4>
+                            <p>Content Creator, นักประชาสัมพันธ์, บรรณาธิการ, นักวิชาการภาษาไทย, พิธีกร</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="major-media">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/12631653507923601834" alt="[บรรยากาศการเรียนภาษาไทยประยุกต์]" class="major-img">
+                    <div class="qr-wrapper">
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                            <span>สแกนดูหลักสูตร</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-brands fa-facebook-f"></i></div>
+                            <span>Facebook สาขาฯ</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/13161007036577786276" alt="เรียนภาษาจีน">
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Slide 6: Deep-dive Community Studies -->
-<div class="slide-container" id="slide6">
-    <h2 class="slide-title">เจาะลึกสาขาวิชาชุมชนศึกษาเพื่อการพัฒนา</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div class="major-info">
-                <div class="info-tag"><i class="fa-solid fa-award"></i><strong>จุดเด่น:</strong><span>เรียนรู้จากการปฏิบัติงานจริงในชุมชน ลงพื้นที่เพื่อสร้างการเปลี่ยนแปลงทางสังคม</span></div>
-                <div class="info-tag"><i class="fa-solid fa-book-open-reader"></i><strong>แผนการศึกษา:</strong><span>เรียน 4 ปี ครอบคลุมการวิจัยสังคม การบริหารจัดการ และการพัฒนาท้องถิ่น</span></div>
-                <div class="info-tag"><i class="fa-solid fa-coins"></i><strong>ค่าเทอม:</strong><span>16,000 บาท / ภาคการศึกษา</span></div>
-                <div class="info-tag"><i class="fa-solid fa-briefcase"></i><strong>อาชีพ:</strong><span>นักพัฒนาสังคม (NGO), นักวิจัยโครงการพัฒนา, ข้าราชการส่วนท้องถิ่น</span></div>
-                <div class="qr-section">
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div><span>ข้อมูลหลักสูตร</span></div>
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-brands fa-facebook-f"></i></div><span>Facebook หลักสูตรฯ</span></div>
+        <!-- PAGE 4: ENGLISH -->
+        <section class="page-section" id="page-4">
+            <div class="major-container">
+                <div class="major-details">
+                    <h3>สาขาวิชาภาษาอังกฤษ</h3>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>จุดเด่นหลักสูตร</h4>
+                            <p>เน้นทักษะภาษาอังกฤษเข้มข้นเพื่อการสื่อสารระดับสากล งานการแปล การล่าม และธุรกิจระหว่างประเทศ</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h4>แผนการศึกษา</h4>
+                            <p>ระยะเวลาเรียน 4 ปี ปลูกฝังทักษะรอบด้าน พร้อมวิชาเลือกเฉพาะทางตามความสนใจ</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <h4>ค่าธรรมเนียมการศึกษา</h4>
+                            <p>16,000 บาท / ภาคการศึกษา</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <h4>อาชีพหลังสำเร็จการศึกษา</h4>
+                            <p>ล่าม, นักแปล, เจ้าหน้าที่การต้อนรับบนเครื่องบิน, พนักงานบริษัทข้ามชาติ, นักวิเทศสัมพันธ์</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="major-media">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/12922321673773075123" alt="[บรรยากาศการเรียนสาขาภาษาอังกฤษ]" class="major-img">
+                    <div class="qr-wrapper">
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                            <span>สแกนดูหลักสูตร</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-brands fa-facebook-f"></i></div>
+                            <span>Facebook สาขาฯ</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/10273680727848031570" alt="ลงพื้นที่ชุมชน">
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Slide 7: Deep-dive Aviation -->
-<div class="slide-container" id="slide7">
-    <h2 class="slide-title">เจาะลึกสาขาการจัดการอุตสาหกรรมการบินฯ</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div class="major-info">
-                <div class="info-tag"><i class="fa-solid fa-award"></i><strong>จุดเด่น:</strong><span>มีห้องปฏิบัติการจำลองเครื่องบิน ฝึกทักษะงานบริการระดับสากลตามมาตรฐาน</span></div>
-                <div class="info-tag"><i class="fa-solid fa-book-open-reader"></i><strong>แผนการศึกษา:</strong><span>เรียน 4 ปี ครอบคลุมงานภาคพื้น บนเครื่อง และการจัดการสนามบิน</span></div>
-                <div class="info-tag"><i class="fa-solid fa-coins"></i><strong>ค่าเทอม:</strong><span>26,000 บาท / ภาคการศึกษา</span></div>
-                <div class="info-tag"><i class="fa-solid fa-briefcase"></i><strong>อาชีพ:</strong><span>พนักงานต้อนรับบนเครื่องบิน, พนักงานภาคพื้นดิน, งานบริการโรงแรม</span></div>
-                <div class="qr-section">
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div><span>ข้อมูลหลักสูตร</span></div>
-                    <div class="qr-box"><div class="qr-placeholder"><i class="fa-brands fa-facebook-f"></i></div><span>Facebook หลักสูตรฯ</span></div>
+        <!-- PAGE 5: CHINESE -->
+        <section class="page-section" id="page-5">
+            <div class="major-container">
+                <div class="major-details">
+                    <h3>สาขาวิชาภาษาจีน</h3>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>จุดเด่นหลักสูตร</h4>
+                            <p>สอนโดยอาจารย์เจ้าของภาษา มีแผนการเรียน 3+1 โอกาสศึกษาต่อ ณ มหาวิทยาลัยประเทศจีน 1 ปี</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h4>แผนการศึกษา</h4>
+                            <p>ระยะเวลาเรียน 4 ปี เน้นภาษาจีนเชิงธุรกิจ วัฒนธรรมจีน และการติดต่อประสานงาน</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <h4>ค่าธรรมเนียมการศึกษา</h4>
+                            <p>16,000 บาท (แผนปกติ) / 28,000 บาท (แผน 3+1)</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <h4>อาชีพหลังสำเร็จการศึกษา</h4>
+                            <p>ล่ามภาษาจีน, มัคคุเทศก์, เจ้าหน้าที่ประสานงานธุรกิจไทย-จีน, งานการท่องเที่ยวและโรงแรม</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="major-media">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/5396360657591973587" alt="[บรรยากาศการเรียนสาขาภาษาจีน]" class="major-img">
+                    <div class="qr-wrapper">
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                            <span>สแกนดูหลักสูตร</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-brands fa-facebook-f"></i></div>
+                            <span>Facebook สาขาฯ</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/9546982447115433901" alt="การจัดการการบิน">
-            </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Slide 8: Admission Plan (Tiled_Text_With_Icons) -->
-<div class="slide-container" id="slide8">
-    <h2 class="slide-title">แผนการรับนักศึกษา (TCAS)</h2>
-    <div class="content-area">
-        <div class="tiled-content" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-id-card-clip"></i></div>
-                <h3>TCAS 1 Portfolio</h3>
-                <p>เน้นผลงานและความสามารถพิเศษ<br><strong>องค์ประกอบ:</strong><br>GPAX 5 ภาคเรียน, GPA, Portfolio</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                <h3>TCAS 2 Quota</h3>
-                <p>โควตาพื้นที่ภาคใต้และโครงการพิเศษ<br><strong>องค์ประกอบ:</strong><br>GPAX 5 ภาคเรียน, GPA, TGAT หรือ A-Level</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
-                <h3>TCAS 3 Admission</h3>
-                <p>การคัดเลือกรอบรับทั่วประเทศ (ทปอ.)<br><strong>องค์ประกอบ:</strong><br>GPAX 6 ภาคเรียน, TGAT และ A-Level</p>
-            </div>
-        </div>
-        <div style="margin-top: 35px; text-align: center; background: var(--gold-light); padding: 18px; border-radius: 12px; border: 1px dashed var(--gold-primary);">
-            <p style="margin:0; font-weight: 600; color: var(--red-primary);"><i class="fa-solid fa-circle-info"></i> เปิดรับสมัครภายใต้ระบบ TCAS ตามประกาศของมหาวิทยาลัยสงขลานครินทร์</p>
-        </div>
-    </div>
-</div>
+        <!-- PAGE 6: COMMUNITY STUDIES -->
+        <section class="page-section" id="page-6">
+            <div class="major-container">
+                <div class="major-details">
+                    <h3>สาขาวิชาชุมชนศึกษาเพื่อการพัฒนา</h3>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>จุดเด่นหลักสูตร</h4>
+                            <p>เรียนรู้ผ่านการลงพื้นที่และปฏิบัติงานจริงในชุมชน เพื่อสร้างองค์ความรู้และการพัฒนาอย่างยั่งยืน</p>
+                        </div>
+                    </div>
 
-<!-- Slide 9: Summary Table -->
-<div class="slide-container" id="slide9">
-    <h2 class="slide-title">ตารางสรุปจำนวนรับนักศึกษา คณะศิลปศาสตร์</h2>
-    <div class="content-area">
-        <table>
-            <thead>
-                <tr>
-                    <th rowspan="2" style="width: 8%;">ลำดับที่</th>
-                    <th rowspan="2" style="width: 32%;">สาขาวิชา</th>
-                    <th colspan="5">TCAS</th>
-                    <th rowspan="2" style="width: 15%;">แผนการรับ<br>(รวมทุกรอบ)</th>
-                </tr>
-                <tr>
-                    <th class="sub-header">รอบ 1/1<br><span style="font-weight: 300;">(โครงการ 1)</span></th>
-                    <th class="sub-header">รอบ 1/2<br><span style="font-weight: 300;">(โครงการ 2, 3)</span></th>
-                    <th class="sub-header">รอบ 1/3<br><span style="font-weight: 300;">(โครงการ 4-7)</span></th>
-                    <th class="sub-header">รอบ 2<br><span style="font-weight: 300;">(โครงการ 8-10)</span></th>
-                    <th class="sub-header">รอบ 3<br><span style="font-weight: 300;">(โครงการ 11)</span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1.</td><td style="text-align:left; font-weight: 600;">ภาษาไทยประยุกต์</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-                <tr><td>2.</td><td style="text-align:left; font-weight: 600;">ภาษาอังกฤษ</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-                <tr><td>3.</td><td style="text-align:left; font-weight: 600;">ภาษาจีน</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-                <tr><td>4.</td><td style="text-align:left; font-weight: 600;">ภาษาจีน (3+1)</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-                <tr><td>5.</td><td style="text-align:left; font-weight: 600;">ชุมชนศึกษาเพื่อการพัฒนา</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-                <tr><td>6.</td><td style="text-align:left; font-weight: 600;">การจัดการอุตสาหกรรมการบินและการบริการ</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td style="font-weight: 600; color: var(--red-primary);">ตามประกาศ</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h4>แผนการศึกษา</h4>
+                            <p>ระยะเวลาเรียน 4 ปี ครอบคลุมวิจัยเชิงพื้นที่ การพัฒนาสังคม และการบริหารจัดการนวัตกรรมชุมชน</p>
+                        </div>
+                    </div>
 
-<!-- Slide 10: Contact (Q&A) -->
-<div class="slide-container" id="slide10">
-    <div class="content-area" style="align-items: center; text-align: center;">
-        <div class="icon" style="font-size: 70px; color: var(--gold-primary); margin-bottom: 15px;"><i class="fa-solid fa-headset"></i></div>
-        <h1 style="font-size: 46px; color: var(--red-primary);">ติดต่อสอบถามข้อมูลการรับนักศึกษา</h1>
-        <p style="font-size: 24px; font-weight: 600; color: var(--red-secondary); margin-bottom: 25px;">งานบริการการศึกษา คณะศิลปศาสตร์</p>
-        
-        <div class="contact-grid">
-            <div class="contact-item"><i class="fa-solid fa-envelope"></i><div style="text-align: left;"><strong>E-mail</strong><br>pirun.l@psu.ac.th</div></div>
-            <div class="contact-item"><i class="fa-solid fa-phone"></i><div style="text-align: left;"><strong>โทรศัพท์</strong><br>0 7428 6711 (ในวันและเวลาทำการ)</div></div>
-            <div class="contact-item"><i class="fa-solid fa-globe"></i><div style="text-align: left;"><strong>Website</strong><br>https://libarts.psu.ac.th/</div></div>
-            <div class="contact-item"><i class="fa-brands fa-facebook"></i><div style="text-align: left;"><strong>Facebook</strong><br>คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์</div></div>
-        </div>
-        
-        <div style="margin-top: 40px; border-top: 2px solid var(--gold-border); width: 60%; padding-top: 15px;">
-            <p style="color: var(--red-primary); font-weight: 600; font-style: italic;">ยินดีต้อนรับต้อนรับสู่ คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์</p>
-        </div>
-    </div>
-</div>
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <h4>ค่าธรรมเนียมการศึกษา</h4>
+                            <p>16,000 บาท / ภาคการศึกษา</p>
+                        </div>
+                    </div>
 
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <h4>อาชีพหลังสำเร็จการศึกษา</h4>
+                            <p>นักพัฒนาสังคม, เจ้าหน้าที่องค์กรพัฒนาเอกชน (NGO), นักวิจัยโครงการ, ข้าราชการส่วนท้องถิ่น</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="major-media">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/15800482807503964125" alt="[บรรยากาศการลงพื้นที่ชุมชนศึกษา]" class="major-img">
+                    <div class="qr-wrapper">
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                            <span>สแกนดูหลักสูตร</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-brands fa-facebook-f"></i></div>
+                            <span>Facebook สาขาฯ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 7: AVIATION MANAGEMENT -->
+        <section class="page-section" id="page-7">
+            <div class="major-container">
+                <div class="major-details">
+                    <h3>สาขาวิชาการจัดการอุตสาหกรรมการบินและการบริการ</h3>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-star"></i>
+                        <div>
+                            <h4>จุดเด่นหลักสูตร</h4>
+                            <p>มีห้องปฏิบัติการจำลองเครื่องบิน (Mock-up) พร้อมหลักสูตรฝึกปฏิบัติมาตรฐานสายการบินระดับสากล</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <div>
+                            <h4>แผนการศึกษา</h4>
+                            <p>ระยะเวลาเรียน 4 ปี ครอบคลุมงานบริการต้อนรับบนเครื่องบิน งานบริการภาคพื้นดิน และการจัดการท่าอากาศยาน</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <h4>ค่าธรรมเนียมการศึกษา</h4>
+                            <p>26,000 บาท / ภาคการศึกษา</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <div>
+                            <h4>อาชีพหลังสำเร็จการศึกษา</h4>
+                            <p>พนักงานต้อนรับบนเครื่องบิน (แอร์โฮสเตส/สจ๊วต), พนักงานบริการภาคพื้นดิน, พนักงานต้อนรับโรงแรม</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="major-media">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/6619796432662077446" alt="[การซ้อมปฏิบัติการจัดการการบิน]" class="major-img">
+                    <div class="qr-wrapper">
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                            <span>สแกนดูหลักสูตร</span>
+                        </div>
+                        <div class="qr-card">
+                            <div class="qr-box"><i class="fa-brands fa-facebook-f"></i></div>
+                            <span>Facebook สาขาฯ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 8: TCAS PLAN -->
+        <section class="page-section" id="page-8">
+            <div class="section-header">
+                <h2>แผนการรับนักศึกษา (TCAS)</h2>
+                <p>เปิดรับสมัครนักศึกษาเข้าศึกษาต่อระดับปริญญาตรีภายใต้ระบบ TCAS</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+                    <h3>TCAS 1 Portfolio</h3>
+                    <p style="text-align: left; margin-top: 15px;">
+                        <strong>องค์ประกอบคะแนนที่ใช้:</strong><br>
+                        • คะแนน GPAX 5 ภาคเรียน<br>
+                        • คะแนน GPA กลุ่มสาระฯ<br>
+                        • แฟ้มสะสมผลงาน (Portfolio)
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3>TCAS 2 Quota</h3>
+                    <p style="text-align: left; margin-top: 15px;">
+                        <strong>องค์ประกอบคะแนนที่ใช้:</strong><br>
+                        • คะแนน GPAX 5 ภาคเรียน<br>
+                        • คะแนน GPA กลุ่มสาระฯ<br>
+                        • คะแนนสอบ TGAT หรือ A-Level
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3>TCAS 3 Admission</h3>
+                    <p style="text-align: left; margin-top: 15px;">
+                        <strong>องค์ประกอบคะแนนที่ใช้:</strong><br>
+                        • คะแนน GPAX 6 ภาคเรียน<br>
+                        • คะแนนสอบ TGAT<br>
+                        • คะแนนสอบ A-Level (ตามสาขากำหนด)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 9: SUMMARY TABLE -->
+        <section class="page-section" id="page-9">
+            <div class="section-header">
+                <h2>ตารางสรุปจำนวนรับนักศึกษา คณะศิลปศาสตร์</h2>
+                <p>การแบ่งรอบโครงการและสาขาวิชาที่เปิดรับ</p>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">ลำดับที่</th>
+                            <th rowspan="2">สาขาวิชา</th>
+                            <th colspan="3">TCAS รอบ 1 (Portfolio)</th>
+                            <th>TCAS รอบ 2 (Quota)</th>
+                            <th>TCAS รอบ 3 (Admission)</th>
+                            <th rowspan="2">แผนการรับ<br>(รวมทุกรอบ)</th>
+                        </tr>
+                        <tr>
+                            <th class="sub-head">รอบ 1/1<br>(โครงการ 1)</th>
+                            <th class="sub-head">รอบ 1/2<br>(โครงการ 2, 3)</th>
+                            <th class="sub-head">รอบ 1/3<br>(โครงการ 4, 5, 6, 7)</th>
+                            <th class="sub-head">รอบ 2<br>(โครงการ 8, 9, 10)</th>
+                            <th class="sub-head">รอบ 3<br>(โครงการ 11)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td style="text-align: left; font-weight: 600;">ภาษาไทยประยุกต์</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td style="text-align: left; font-weight: 600;">ภาษาอังกฤษ</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td style="text-align: left; font-weight: 600;">ภาษาจีน</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td style="text-align: left; font-weight: 600;">ภาษาจีน(3+1)</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td style="text-align: left; font-weight: 600;">ชุมชนศึกษาเพื่อการพัฒนา</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                        <tr>
+                            <td>6.</td>
+                            <td style="text-align: left; font-weight: 600;">การจัดการอุตสาหกรรมการบินและการบริการ</td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td class="check-mark"><i class="fa-solid fa-check"></i></td>
+                            <td style="font-weight: 600; color: var(--red-deep);">ตามประกาศ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PAGE 10: CONTACT INFO -->
+        <section class="page-section" id="page-10">
+            <div class="section-header">
+                <h2>ติดต่อสอบถามข้อมูลการรับนักศึกษา</h2>
+                <p>งานบริการการศึกษา คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>E-mail</h4>
+                        <p><a href="mailto:pirun.l@psu.ac.th">pirun.l@psu.ac.th</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>โทรศัพท์</h4>
+                        <p><a href="tel:074286711">0 7428 6711</a> (ในวันและเวลาทำการ)</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <h4>Website คณะ</h4>
+                        <p><a href="https://libarts.psu.ac.th/" target="_blank" rel="noopener">https://libarts.psu.ac.th/</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa-brands fa-facebook"></i>
+                    <div>
+                        <h4>Facebook Page</h4>
+                        <p><a href="https://sites.google.com/view/fla-es/" target="_blank" rel="noopener">คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTROLS FOOTER / SLIDE STEPPER -->
+        <div class="slide-controls">
+            <button class="btn-step" id="btnPrev" onclick="changePage(-1)">
+                <i class="fa-solid fa-chevron-left"></i> ย้อนกลับ
+            </button>
+            <div class="slide-indicator" id="pageIndicator">
+                หน้า 1 / 10
+            </div>
+            <button class="btn-step" id="btnNext" onclick="changePage(1)">
+                ถัดไป <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 คณะศิลปศาสตร์ มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตหาดใหญ่ | ลิขสิทธิ์ของงานบริการการศึกษา</p>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPT -->
+    <script>
+        // Global App State
+        let currentPage = 1;
+        const totalPages = 10;
+
+        // Initialize Web Application
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo(1);
+
+            // Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+            });
+        });
+
+        // Navigation Function
+        function navigateTo(pageNumber) {
+            if (pageNumber < 1 || pageNumber > totalPages) return;
+
+            // Update Current Page
+            currentPage = pageNumber;
+
+            // Hide all pages and show active page
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`page-${currentPage}`).classList.add('active');
+
+            // Update Slide Stepper Indicator
+            document.getElementById('pageIndicator').innerText = `หน้า ${currentPage} / ${totalPages}`;
+
+            // Update Button Disabled States
+            document.getElementById('btnPrev').disabled = (currentPage === 1);
+            document.getElementById('btnNext').disabled = (currentPage === totalPages);
+
+            // Update Active Nav Links
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            
+            // Map pages to nav menu items
+            if (currentPage === 1) document.querySelectorAll('.nav-link')[0]?.classList.add('active');
+            else if (currentPage === 2) document.querySelectorAll('.nav-link')[1]?.classList.add('active');
+            else if (currentPage >= 3 && currentPage <= 7) document.querySelectorAll('.nav-link')[1]?.classList.add('active');
+            else if (currentPage === 8) document.querySelectorAll('.nav-link')[2]?.classList.add('active');
+            else if (currentPage === 9) document.querySelectorAll('.nav-link')[3]?.classList.add('active');
+            else if (currentPage === 10) document.querySelectorAll('.nav-link')[4]?.classList.add('active');
+
+            // Close Mobile Menu if open
+            document.getElementById('navMenu').classList.remove('show');
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Stepper Function (+1 / -1)
+        function changePage(direction) {
+            navigateTo(currentPage + direction);
+        }
+
+        // Keyboard Navigation (Arrow keys)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') changePage(1);
+            if (e.key === 'ArrowLeft') changePage(-1);
+        });
+    </script>
 </body>
 </html>
-
